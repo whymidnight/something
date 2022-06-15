@@ -3,7 +3,7 @@ pragma solidity ^0.8.13;
 
 import "ds-test/test.sol";
 import "forge-std/Test.sol";
-import "seedtosale/seed_accounting.sol";
+import "seedtosale/cultivation.sol";
 
 contract seed_accountingTest is Test {
   address device =
@@ -22,15 +22,16 @@ contract seed_accountingTest is Test {
     seedAccountingInstance.RegisterSeed(
       deviceSerial,
       "some",
-      0
+      3
     );
   }
 
   function testGetSeed() public {
     hwMgmt.AddDevice(deviceSerial, device);
-    require(
-      hwMgmt.RegisteredDevice(deviceSerial),
-      "not registered"
+    seedAccountingInstance.RegisterSeed(
+      deviceSerial,
+      "some",
+      3
     );
     (
       string memory strainName,

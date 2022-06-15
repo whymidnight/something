@@ -19,7 +19,7 @@ contract seedAccounting is hardwareMgmt {
     string memory serial,
     string memory strainName,
     uint64 plantedEpoch
-  ) public {
+  ) public virtual {
     seedInventory[serial] = Seed(
       Strain(strainName),
       plantedEpoch
@@ -27,17 +27,15 @@ contract seedAccounting is hardwareMgmt {
     return;
   }
 
+  // @returns (Strain.name, Seed.plantedEpoch)
   function GetSeed(string memory deviceSerial)
     public
     view
-    returns (
-      // @returns (Strain.name, Seed.plantedEpoch)
-      string memory,
-      uint64
-    )
+    returns (string memory, uint64)
   {
     Seed memory seed = seedInventory[deviceSerial];
 
     return (seed.strain.name, seed.plantedEpoch);
   }
 }
+

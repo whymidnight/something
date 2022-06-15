@@ -2,8 +2,6 @@
 pragma solidity ^0.8.13;
 
 contract hardwareMgmt {
-  event logDeviceSerial(string serial);
-  event logDeviceAddress(address device);
   struct Device {
     string serial;
     address device;
@@ -11,23 +9,9 @@ contract hardwareMgmt {
   }
   mapping(string => Device) public inventory;
 
-  modifier unusedSerial(string memory serial) {
-    require(!inventory[serial].registered);
-    _;
-  }
-
-  function RegisteredDevice(string memory serial)
-    public
-    returns (bool)
-  {
-    emit logDeviceSerial(serial);
-    emit logDeviceAddress(inventory[serial].device);
-    return inventory[serial].registered;
-  }
-
   function AddDevice(string memory serial, address device)
     public
-    unusedSerial(serial)
+    virtual
   {
     inventory[serial] = Device(serial, device, true);
     return;
