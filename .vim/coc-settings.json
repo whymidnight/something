@@ -1,0 +1,9 @@
+{
+  "solidity.remapping": {
+    "ds-test/": "lib/forge-std/lib/ds-test/src/",
+    "forge-std/": "lib/forge-std/src/",
+    "seedtosale/": "src/"
+  },
+  "coc.preferences.formatOnSaveFiletypes": ["solidity"]
+}
+
