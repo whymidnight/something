@@ -5,7 +5,7 @@ import "ds-test/test.sol";
 import "forge-std/Test.sol";
 import "seedtosale/hardware_mgmt.sol";
 
-contract hardware_mgmtTest is Test {
+contract hardwareMgmtTest is Test {
   hardwareMgmt hwMgmt;
   address device =
     0xD343877a067533b14840416d40738A3D48bAC952;
